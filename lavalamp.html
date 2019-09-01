@@ -97,10 +97,10 @@
         <div class="col-md-8">
           <div class="post-box">
             <div class="post-thumb">
-              <img src="img/usb/usbtester.jpg" class="img-fluid" alt="">
+              <img src="img/lavalamp.png" class="img-fluid" alt="">
             </div>
             <div class="post-meta">
-              <h1 class="article-title">USB Charger Tester</h1>
+              <h1 class="article-title">Homebridge Lava Lamp</h1>
               <ul>
                 <li>
                   <span class="ion-ios-person"></span>
@@ -108,36 +108,37 @@
                 </li>
                 <li>
                   <span class="ion-pricetag"></span>
-                  <a href="#">Electronics</a>
+                  <a href="#">Smart Home</a>
                 </li>
 
               </ul>
             </div>
             <div class="article-content">
               <p>
-                Part of my Vocational Work was at a company called Power Logic. They make multifunctional plugs for offices, kitchens and households. These can be customised to have different kinds of plugs, ethernet ports, display cables and USB charging ports.  
+                I utilised a WiFi-enabled relay board and a Raspberry Pi to connect my lava lamp to my network.  
               </p>
               <p>
-                I spent most of my time working at the company working on the USB testers. The USB chargers that would be used in their device was designed in house and made in China. These chargers would be delivered and need to be tested before they could be sent out to the customer. Previously they would take up to 1 minute per USB charger to test. This was a very tedious and time consuming project and thus an upgrade was needed. 
+                The WiFi board shown below was programmed through the Arduino IDE. This is possible due to the onboard ESP8266 Arduino microcontroller with a built in WiFi module. I wrote Arduino code to create a wireless server from the device. This would update a simple HTML website with a 1 or 0 to indicate whether the lava lamp was on or off. 
               </p>   
               
                 
             
                 <p>
-                I was tasked with improving the USB charger testing process. I based my design off of an Arduino microcontroller that would be powered by it's own power. The operator would then use the secondary USB and plug it into the USB charger. The built in volt meter in the Arduino would then check the no-load voltage output of the charger, then load the charger with an load that would effectively draw 3A from the charger (max rating). The LED would go green if the charger was good, and red if the charger was faulty. The entire process took only 20 seconds. 
+                In order to control the lava lamp through Siri, an additional step was required: installing Homebridge on a Raspberry Pi. Homebridge is a device that mimics a "Home Hub", allowing any wirelessly connecting device (IoT device), to be accessed and controlled via the Home app on iOS, and by extension, Siri.  
                 </p>
                 
                 <blockquote class="blockquote">
-                <p class="mb-0">My design improved the testing time by 2000%</p>
+                <p class="mb-0">"Hey Siri, turn my lava lamp on!"</p>
               </blockquote>
                 
                 <p>
-                After the prototype was complete, I designed a PCB in EasyEDA that would be used in the normal testing stations at Power Logic. 
+                After installing the software on my Raspberry Pi, I setup a plugin that looked for the ESP8266's created server listing and adjust the listing. When a Siri call is enabled, this causes the trigger to arrive at the Homebridge software. Homebridge is then directed to the ESP8266's server and calls "/lavalamp/1" to trigger the lava lamp to turn on. This causes the relay to switch on, and the lava lamp to shine!
                 </p>
                 
                 
                 <center>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/_qp8xQ3FU9w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <video src="vid/lavalamp_phone.MP4" controls width="315"></video>
+                <video src="vid/lavalamp_watch.mp4" controls width="315"></video>
                 </center>
             </div>
               
@@ -176,7 +177,7 @@
                   <a href="rpienclosure.html">Raspberry Pi Enclosure</a>
                 </li>
                 <li>
-                  <a href="lavalamp.html">Homebridge Lava Lamp</a>
+                  <a href="usbtester.html">USB Charger Tester</a>
                 </li>
               </ul>
             </div>
